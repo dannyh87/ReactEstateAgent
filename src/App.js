@@ -5,6 +5,7 @@ import './App.css';
 import Tile from './Tile.js'
 
 
+<header />
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <h1 id='title' >Midland Properties</h1>
       {houses.map(h=><Tile key={h.id} id={h.id} price={h.price} area={h.area} image={h.image} type={h.type}/>)}
     </div>
   );

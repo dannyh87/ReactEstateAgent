@@ -16,11 +16,15 @@ app.get("/houses", (req, res) => {
   res.send(JSON.stringify( houses ));
 });
 app.post("/sms", (req, res) => {
-  let msg = `hello, ${req.body.name} would like to view house ${req.body.id} 'at ''${req.body.time} 'contact via' ${req.body.email} 'additional info'${req.body.msg}`
-  sendSMS(msg, req.body.tel)
+  let agentMsg = `hello, ${req.body.name} would like to view house ${req.body.id} 'at ''${req.body.time} 'contact via' ${req.body.email} 'additional info'${req.body.msg}`
+  let customerMsg = `hello, ${req.body.name} thank you for booking a viewing of ${req.body.id} 'at ''${req.body.time}.`
+  let agentNumber = '447779413675'
+  sendSMS(agentMsg, agentNumber)
+  sendSMS(customerMsg, req.body.tel)
   res.type('application/json')
   res.send(JSON.stringify( "OK" ));
 });
+
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
