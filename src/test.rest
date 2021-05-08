@@ -1,0 +1,9 @@
+###
+post http://localhost:3001/sms
+Content-Type: application/json
+
+{
+    "message" : "This is my first web generated text",
+    "number" : "1234"
+   }
+
